@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kuala Lumpur House Price Prediction</title>
+  </head>
+  <body>
+    <h1>Kuala Lumpur House Price Prediction</h1>
+    <form method="POST">
+      {% csrf_token %}
+      <p>
+        <label>Number of Bedrooms:</label>
+        <input type="number" name="bedrooms" required />
+      </p>
+      <p>
+        <label>Number of Bathrooms:</label>
+        <input type="number" name="bathrooms" required />
+      </p>
+      <p>
+        <label>House Size (sq ft):</label>
+        <input type="number" name="size_sqft" required />
+      </p>
+      <p>
+        <label>Age of House (years):</label>
+        <input type="number" name="age" required />
+      </p>
+      <button type="submit">Predict House Price</button>
+    </form>
+    {% if predicted_price %}
+      <hr />
+      <h2>Predicted House Price</h2>
+      <h1>RM {{ predicted_price }}</h1>
+    {% endif %}
+  </body>
+</html>
